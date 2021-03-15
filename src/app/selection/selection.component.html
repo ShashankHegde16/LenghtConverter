@@ -1,0 +1,25 @@
+<div class="row g-3 container">
+
+    <div class="col-5">
+        <label for="inputSelection" class="form-label">Select Length Type</label>
+        <select id="inputSelection" class="form-select" [(ngModel)]="option1" (change)="uponChange($event)">
+            <option *ngFor="let option of options" [value]=option.value>{{option.key}}</option>
+        </select>
+    </div>
+    <div class="col-1">
+        <span>TO</span>
+    </div>
+    <div class="col-5">
+        <label for="disabledSelect" class="form-label">Select Length Type</label>
+        <select id="disabledSelect" class="form-select" [(ngModel)]="option2" (change)="uponChange($event)">
+
+            <option *ngFor="let option of options" [value]=option.value>{{option.key}}</option>
+        </select>
+    </div>
+    <div class="col-6">
+        <label for="inputNumber" class="form-label">Enter Number</label>
+        <input type="text" (ngModelChange)="handleInput($event)" [ngModel]="ConvertedValue" class="form-control"
+            id="inputNumber" placeholder="Enter Number">
+    </div>
+    <span>{{ConvertedValue | lengthConversions:filter}}</span>
+</div>
